@@ -1,0 +1,149 @@
+<div class="header ">
+  <div class="headerContent container">
+    <div class="headerDev container">
+     <div class="searchsection">
+      <div class="img"><img src="/assets/images/dev.png" alt="#"></div>
+    <div class="searchsection">
+
+     <div class="searchdiv" >
+      <input [(ngModel)]="searchTerm" type="text">
+      <button (click)="search()">Search title</button>
+
+     </div>
+
+<div class="search"><img  width="25px" height="25px" src="/assets/images/search2.jpeg" alt=""></div>
+
+    </div>
+    </div>
+    <div class="Account">
+      <button class="loginbtn">Log in</button>
+      <button class="accountbtn">Create Account</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" >
+  <div class="row">
+    <div class="col">
+      <mat-card class="example-card">
+        <mat-card-header>
+
+          <mat-card-title>DEV Community 👩‍💻👨‍💻 is a community of 1,003,540 amazing developers</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>We're a place where coders share, stay up-to-date and grow their careers.</p>
+          <p></p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary">Create Account</button>
+          <button mat-button>Login</button>
+        </mat-card-actions>
+        <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+      <mat-list role="list">
+        <mat-list-item role="listitem">  Item 1</mat-list-item>
+        <mat-list-item role="listitem">Item 2</mat-list-item>
+        <mat-list-item role="listitem">Item 3</mat-list-item>
+      </mat-list>
+
+
+    </div>
+    <div class="col-6" >
+    <div class="mainContent" *ngIf="!inputfied">
+      <div class="releventSection" >
+        <a mat-flat-button  target="_blank"> Relevant</a>
+        <a mat-flat-button  target="_blank">Latest</a>
+        <a mat-flat-button  target="_blank">Top</a>
+       </div>
+
+       <ul *ngIf="results">
+        <li *ngFor="let result of results">
+          {{ result.name }}
+        </li>
+      </ul>
+       <div class="mainReleventcontent" *ngFor="let item of HomeData">
+
+        <mat-card class="example-card" routerLink="/detail/{{item.id}}">
+
+          <img mat-card-image src="http://localhost:3200/images/{{ item.imageone }}" alt="">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"><img src="http://localhost:3200/images/{{ item.Devwebtablecol1 }}" alt=""></div>
+            <mat-card-title>{{item.name}}</mat-card-title>
+            <mat-card-subtitle>{{item.paragraph}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+         <h2>{{item.heading}}</h2>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="buttondiv">
+            <button mat-icon-button  aria-label="Example icon button with a heart icon">
+              <mat-icon>favorite</mat-icon> <span>{{item.like}} reactions</span>
+            </button>
+          </div>
+          <div class="buttondiv">
+            <button mat-icon-button color="dark" aria-label="Example icon button with a heart icon">
+              <mat-icon>message</mat-icon><span >{{item.countComment}}  comment</span>
+            </button>
+          </div>
+          </mat-card-actions>
+        </mat-card>
+
+
+       </div>
+      </div>
+
+      <div class="searchSection"  *ngIf="inputfied" >
+
+
+<div class="searchbox" *ngFor="let result of results"
+
+>  <mat-card class="example-card" routerLink="/detail/{{result.id}}">
+
+  <img mat-card-image src="http://localhost:3200/images/{{ result.imageone }}" alt="">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"><img src="http://localhost:3200/images/{{ result.Devwebtablecol1 }}" alt=""></div>
+    <mat-card-title>{{result.name}}</mat-card-title>
+    <mat-card-subtitle>{{result.paragraph}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+ <h2>{{result.heading}}</h2>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="buttondiv">
+    <button mat-icon-button  aria-label="Example icon button with a heart icon">
+      <mat-icon>favorite</mat-icon> <span>reactions</span>
+    </button>
+  </div>
+  <div class="buttondiv">
+    <button mat-icon-button color="dark" aria-label="Example icon button with a heart icon">
+      <mat-icon>message</mat-icon><span>  comment</span>
+    </button>
+  </div>
+  </mat-card-actions>
+</mat-card></div>
+
+
+      </div>
+    </div>
+
+    <div class="col">
+   this is also home page
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<!-- <ul>
+  <li *ngFor="let post of posts">
+    {{ post.content }} - {{ post.likes }} likes
+    <button (click)="likePost(post.id)">Like</button>
+  </li>
+</ul> -->

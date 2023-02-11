@@ -1,0 +1,74 @@
+.header{
+  border: 1px solid;
+  height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  .headerContent{
+    width: 100%;
+    .headerDev{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .searchsection{
+        display: flex;
+        flex-direction: row;
+position: relative;
+        width: 100%;
+        gap: 15px;
+        input{
+          width: 40%;
+          height: 40px;
+          border-radius: 5px;
+
+          border: 1px solid #ddd;
+        }
+        .img{
+          img{
+            height: 40px;
+            width: 50px;
+          }
+        }
+        .search{
+          position: absolute;
+left: 37%;
+top: 5px;
+
+        }
+      }
+      .Account{
+        display: flex;
+      flex-direction: row;
+      gap: 10px;
+      button{
+        height: 40px;
+        border: 1px solid ;
+        background-color: transparent;
+        border-radius: 5px ;
+        border-color: #ddd;
+      }
+.loginbtn{
+  width: 70px;
+  border: 0px solid;
+  &:hover{
+    color: rgb(0, 0, 255);
+    background-color: rgb(198, 198, 232);
+  }
+}
+      .accountbtn{
+        width: 150px;
+        color: blue;
+        border-color: blue;
+        &:hover{
+          background-color: blue;
+          color: #fff;
+        }
+      }
+
+      }
+    }
+  }
+}

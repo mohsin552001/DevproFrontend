@@ -1,0 +1,146 @@
+<div class="container" *ngFor="let info of singledata">
+  <div class="row">
+    <div class="col colone">
+      <div class="sideContent">
+        <div class="messages">
+          <button
+            mat-icon-button
+            color="primary"
+            aria-label="Example icon button with a heart icon"
+          >
+            <mat-icon>message</mat-icon>
+            <br />
+            <span> {{ countComment }}</span>
+          </button>
+        </div>
+        <br />
+        <div class="messages">
+          <button
+            mat-icon-button
+            color="primary"
+            aria-label="Example icon button with a heart icon"
+          >
+            <mat-icon>favorite</mat-icon>
+            <br />
+            <span> {{ info.like }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="mainReleventcontent" *ngFor="let info of singledata">
+        <mat-card class="example-card">
+          <img
+            mat-card-image
+            src="http://localhost:3200/images/{{ info.imageone }}"
+            alt=""
+          />
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              <img
+                src="http://localhost:3200/images/{{ info.Devwebtablecol1 }}"
+                alt=""
+              />
+            </div>
+            <mat-card-title>{{ info.name }}</mat-card-title>
+            <mat-card-subtitle>{{ info.paragraph }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <h2>{{ info.heading }}</h2>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="buttondiv">
+              <button
+                mat-icon-button
+                aria-label="Example icon button with a heart icon"
+                (click)="incrementValue()"
+              >
+                <mat-icon>favorite</mat-icon> <span (click)="likePost(info.id)"> {{ info.like }} Like</span>
+              </button>
+            </div>
+            <div class="buttondiv">
+              <button
+                mat-icon-button
+                color="dark"
+                aria-label="Example icon button with a heart icon"
+              >
+                <mat-icon>message</mat-icon><span> {{ countComment }} comment</span>
+              </button>
+            </div>
+          </mat-card-actions>
+
+
+        </mat-card>
+
+        <mat-card class="example-card">
+          <!-- <img mat-card-image src="http://localhost:3200/images/{{ info.img2}}" alt=""> -->
+
+          <!-- <img src="http://localhost:3200/images/{{ info.Devwebtablecol1 }}" alt=""> -->
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ info.name }}</mat-card-title>
+            <mat-card-subtitle>{{ info.text1 }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <h4>{{ info.headingtwo }}</h4>
+          </mat-card-content>
+
+        </mat-card>
+
+        <mat-card class="example-card">
+          <!-- <img src="http://localhost:3200/images/{{ info.Devwebtablecol1 }}" alt=""> -->
+          <!-- <img mat-card-image src="http://localhost:3200/images/{{ info.img1}}" alt=""> -->
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ info.name }}</mat-card-title>
+            <mat-card-subtitle>{{ info.text2 }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <h4>{{ info.headingtwo }}</h4>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <div class="buttondiv">
+            <button mat-icon-button  aria-label="Example icon button with a heart icon">
+              <mat-icon>favorite</mat-icon> <span>reactions</span>
+            </button>
+          </div>
+          <div class="buttondiv">
+            <button mat-icon-button color="dark" aria-label="Example icon button with a heart icon">
+              <mat-icon>message</mat-icon><span>comment</span>
+            </button>
+          </div>
+          </mat-card-actions> -->
+
+
+
+        </mat-card>
+
+
+      </div>
+      <h1 class="">Enter Your Comments </h1>
+      <div class="form">
+        <form (ngSubmit)="onSubmit()">
+          <input required
+            type="text"
+            placeholder="Enter Name"
+            name="nameforcomment"
+            [(ngModel)]="nameforcomment"
+          />
+          <textarea required="" [(ngModel)]="comment" name="comment" placeholder="Enter Comment"></textarea>
+
+          <button mat-button color="accent" type="submit">Post Comment</button>
+        </form>
+
+        <div class="Comments" *ngFor="let comment of comments">
+          <h3 class="CommentName">{{ comment.nameforcomment }}</h3>
+          <p class="Comment">{{ comment.comments }}</p>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col">3 of 3</div>
+  </div>
+</div>
